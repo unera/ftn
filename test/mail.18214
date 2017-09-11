@@ -1,0 +1,45 @@
+From dimka@uvw.ru Sat Jul 22 21:34:20 2006
+Received: from dimka by localhost.localdomain with local (Exim 4.50)
+	id 1G4LMq-0004jj-Pz
+	for area-RU.PERL@fidonet.uvw.ru; Sat, 22 Jul 2006 21:34:20 +0400
+Date: Sat, 22 Jul 2006 21:34:20 +0400
+From: "Dmitry E. Oboukhov" <dimka@uvw.ru>
+To: area-RU.PERL@fidonet.uvw.ru
+Subject: Re: =?koi8-r?B?68HLINDSycHU1MHeydTYIMbB?=
+	=?koi8-r?B?yswgyyDQydPYzdU/?=
+Message-ID: <20060722173420.GB16080@avanto.mpei.ac.ru>
+References: <44b761c2@p96.f2.n5058.z2> <694b06ee@ddt.demos.su>
+Mime-Version: 1.0
+Content-Type: text/plain; charset=koi8-r
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <694b06ee@ddt.demos.su>
+X-Fido-To-Name: Vadim Tzirulnicov
+User-Agent: Mutt/1.5.9i
+
+On 17:33 Sat 22 Jul     , Vadim Tzirulnicov wrote:
+> From: "Vadim Tzirulnicov" <tz@ints.ru>
+> 
+> > VT>       $msg->attach(
+> > VT>                 Type=>'application/vnd.ms-excel',
+> > VT>                 Path=>'/home/shop.xls',
+> > VT>                 Filename=>'zakaz.xls');
+> > 1. ты разберись, у тебя файл excel.xls, zakaz.xls или shop.xls
+> 
+> А зачем разбираться ? Что это изменит ?
+> 
+> ну, пробовал я вместо zakaz.xls shop.xls - разумеется бестолку.
+> 
+> > 2. полный путь и именем файла файлу должен быть в Path
+> 
+> А разве не видно, что у меня полный путь ?
+> 
+> > 3. попробуй attach or die $! (надо смотреть в мануале, что возвращает
+> attatch)
+> 
+> Hе срабатывает.
+> 
+> 
+> --- ifmail v.2.15dev5.3
+>  * Origin: Demos online service (2:5020/400)
+

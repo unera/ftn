@@ -1,0 +1,121 @@
+From dimka@uvw.ru Sat Jul 22 21:34:35 2006
+Received: from dimka by localhost.localdomain with local (Exim 4.50)
+	id 1G4LN5-0004jr-0c
+	for area-RU.PERL@fidonet.uvw.ru; Sat, 22 Jul 2006 21:34:35 +0400
+Date: Sat, 22 Jul 2006 21:34:35 +0400
+From: "Dmitry E. Oboukhov" <dimka@uvw.ru>
+To: area-RU.PERL@fidonet.uvw.ru
+Subject: Re: =?koi8-r?B?68HLINDSycHU1MHeydTYIMbB?=
+	=?koi8-r?B?yswgyyDQydPYzdU/?=
+Message-ID: <20060722173435.GC16080@avanto.mpei.ac.ru>
+References: <4744c345@ddt.demos.su> <73d2559a@snake.ukrnet.net>
+Mime-Version: 1.0
+Content-Type: multipart/mixed; boundary="7AUc2qLy4jB3hD7Z"
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <73d2559a@snake.ukrnet.net>
+X-Fido-To-Name: Igor Chumak
+User-Agent: Mutt/1.5.9i
+
+
+--7AUc2qLy4jB3hD7Z
+Content-Type: text/plain; charset=koi8-r
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+
+On 17:33 Sat 22 Jul     , Igor Chumak wrote:
+> From: "Igor Chumak" <igor@g-auto.pul.kiev.ua>
+> 
+> Hello, Vadim!
+> You wrote  on Thu, 13 Jul 2006 19:16:18 +0000 (UTC):
+> 
+>  VT> Есть файл /home/excel.xls, весит 5кб.
+> 
+>  VT> Хочу его отправить на е-мейл:
+> 
+>  VT>       my $msg=MIME::Lite->new(
+>  VT>                 From=>'InternetShop
+>  VT> <'.$CMSBuilder::Config::admin_email.'>',
+>  VT>                 To=>$CMSBuilder::Config::admin_email,
+>  VT>                 Subject=>'Поступил новый заказ',
+>  VT>                 Type=>'TEXT',
+>  VT>                 Data=>'Лови файл'
+>  VT>         );
+>  VT>       $msg->attach(
+>  VT>                 Type=>'application/vnd.ms-excel',
+>  VT>                 Path=>'/home/shop.xls',
+>  VT>                 Filename=>'zakaz.xls');
+> 
+>  VT> Получаю письмо с текстом "Лови файл" и с приложенным файлом
+>  VT> "zakaz.xls"...
+>  VT> Hулевого размера. Как побороть ?
+> 
+> Вот работающий кусок (формирует письмо с аттачем и отправляет по SMTP):
+> sub send_email
+> {
+>   use Net::SMTP;
+>   our $BCC; our $my_email_full; our $smtpsrv; our $my_email;
+>   my $to=$_[0];
+>   my $subj="";
+>   my @multisubj=split /\n/,encode_base64($_[1]);
+>   foreach (@multisubj)
+>    { if (!$subj)
+>   {$subj="=?windows-1251?B?".$_."?="}
+>   else {$subj=$subj."\n\t=?windows-1251?B?".$_."?=";};
+>  };
+>   my $plain_text=$_[2];
+>   my $attach=$_[3];
+>   my $mail=MIME::Entity->build(From => $my_email_full,
+>         To => $to,
+>         Subject => "$subj",
+>         Type        => "multipart/mixed",
+>  Charset => "windows-1251",
+>         Encoding    => "8bit");
+> 
+>  $mail->attach(Data=>$plain_text, Type=>"text/plain",
+>   Charset => "windows-1251", Encoding    => "8bit" );
+> 
+>  if ($attach) {
+>  $mail->attach( Path=>$attach,
+>    Type=>"application/octet-stream",
+>    Encoding=>'base64',
+>    Filename => "message.eml", # у _меня_ имя вложения прибито гвоздём
+>    Disposition => "attachment");
+> # $mail->attach(Data=>$plain_text, Type=>"text/plain",
+> #  Charset => "windows-1251", Encoding    => "8bit" );
+>  };
+>     my $smtp = Net::SMTP->new($smtpsrv,Hello =>$my_email);
+>     $smtp->mail($my_email);
+>     $smtp->to($to);
+> #    if ($BCC) {$smtp->to($BCC);};
+>     $smtp->data();
+>     $smtp->datasend($mail->header());
+>     $smtp->datasend("\n");
+>     $smtp->datasend($mail->body());
+>     $smtp->dataend();
+>     $smtp->quit();
+> };
+> 
+> 
+> 
+> With best regards, Igor Chumak.
+> E-mail: zigorz@zg-zauto.kiev.ua (remove all Z !)
+> 
+> 
+> --- ifmail v.2.15dev5.3
+>  * Origin: Adamant ISP news server (2:5020/400)
+
+--7AUc2qLy4jB3hD7Z
+Content-Type: text/x-perl; charset=koi8-r
+Content-Disposition: attachment; filename="test.pl"
+
+#!/usr/bin/perl
+
+my @letters=('a' .. 'z', 'A' .. 'Z', '0' .. '9', qw(- +));
+
+my $prefix='!bZy@';
+
+my 
+
+--7AUc2qLy4jB3hD7Z--
+

@@ -1,0 +1,57 @@
+From dimka@uvw.ru Sat Jul 22 21:34:15 2006
+Received: from dimka by localhost.localdomain with local (Exim 4.50)
+	id 1G4LMl-0004jb-Fo
+	for area-RU.PERL@fidonet.uvw.ru; Sat, 22 Jul 2006 21:34:15 +0400
+Date: Sat, 22 Jul 2006 21:34:15 +0400
+From: "Dmitry E. Oboukhov" <dimka@uvw.ru>
+To: area-RU.PERL@fidonet.uvw.ru
+Subject: Re: =?koi8-r?B?68HLINDSycHU1MHeydTYIMbB?=
+	=?koi8-r?B?yswgyyDQydPYzdU/?=
+Message-ID: <20060722173415.GA16080@avanto.mpei.ac.ru>
+References: <4744c345@ddt.demos.su> <44b761c2@p96.f2.n5058.z2>
+Mime-Version: 1.0
+Content-Type: text/plain; charset=koi8-r
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <44b761c2@p96.f2.n5058.z2>
+X-Fido-To-Name: Alexander Zigar'
+User-Agent: Mutt/1.5.9i
+
+On 17:33 Sat 22 Jul     , Alexander Zigar' wrote:
+> Привет Vadim!
+> 
+> 
+> 
+> 13 Jul 06 22:16, Vadim Tzirulnicov -> All:
+> 
+> VT> Есть файл /home/excel.xls, весит 5кб.
+> 
+> VT> Хочу его отправить на е-мейл:
+> 
+> VT>       my $msg=MIME::Lite->new(
+> VT>                 From=>'InternetShop
+> VT>                 <'.$CMSBuilder::Config::admin_email.'>',
+> VT>                 To=>$CMSBuilder::Config::admin_email,
+> VT>                 Subject=>'Поступил новый заказ',
+> VT>                 Type=>'TEXT',
+> VT>                 Data=>'Лови файл'
+> VT>         );
+> VT>       $msg->attach(
+> VT>                 Type=>'application/vnd.ms-excel',
+> VT>                 Path=>'/home/shop.xls',
+> VT>                 Filename=>'zakaz.xls');
+> 
+> VT> Получаю письмо с текстом "Лови файл" и с приложенным файлом "zakaz.xls"...
+> VT> Hулевого размера. Как побороть ?
+> 
+> 1. ты разберись, у тебя файл excel.xls, zakaz.xls или shop.xls
+> 2. полный путь и именем файла файлу должен быть в Path
+> 3. попробуй attach or die $! (надо смотреть в мануале, что возвращает attatch)
+> 
+> Alexander
+> 
+> 
+> 
+> --- GoldED+/LNX 1.1.5.
+>  * Origin:  (c) 1982 Sinclair Research Ltd.  (2:5058/2.96)
+
